@@ -8,9 +8,16 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.registry.Registry;
 
 public class ModScreenHandlers {
-    public static void init() {}
+    public static final ScreenHandlerType<TulpaScreenHandler> TULPA_SCREEN_HANDLER;
 
-    public static final ScreenHandlerType<TulpaScreenHandler> TULPA_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, AylythUtil.id("tulpa_screen"), new ExtendedScreenHandlerType<>(TulpaScreenHandler::new));
+    static {
+        TULPA_SCREEN_HANDLER = Registry.register(
+                Registry.SCREEN_HANDLER,
+                AylythUtil.id("tulpa_screen"),
+                new ExtendedScreenHandlerType<>(TulpaScreenHandler::new)
+        );
+    }
 
-
+    public static void init() {
+    }
 }
